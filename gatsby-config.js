@@ -6,10 +6,20 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    'gatsby-transformer-remark',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/projects/`,
+      },
+    },
+  ],
   siteMetadata: {
     title: 'Web Warrior',
     description: 'Web dev portfolio',
     copyright: 'This website is copyright 2021 Web Warrior',
+    contact: 'luis.elias.develop@gmail.com',
   }
 }
