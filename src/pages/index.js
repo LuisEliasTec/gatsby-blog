@@ -16,29 +16,17 @@ export default function Home({ data }) {
             My Portfolio Projects
           </Link>
         </div>
-        <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} />
+        <GatsbyImage image={data.file.childrenImageSharp[0].gatsbyImageData} alt="home banner"/>
       </section>
     </Layout>
   )
 }
 
-/*export const query = graphql`
-  query NavInfo {
-    site {
-      siteMetadata {
-        description
-        title
-        copyright
-      }
-    }
-}
-`*/
-
 export const query = graphql`
   query MyQuery {
-    file(relativePath: { eq: "banner.png" }) {
+    file(relativePath: {eq: "banner.png"}) {
       id
-      childImageSharp {
+      childrenImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }

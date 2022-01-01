@@ -5,7 +5,6 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function Projects({ data }) {
-  console.log(data)
   const projects = data.projects.nodes
   const contact = data.contact.siteMetadata.contact
   return (
@@ -13,13 +12,13 @@ export default function Projects({ data }) {
       <div className={styles.portfolio}>
         <h2>Portfolio</h2>
         <h3>Projects & Websites I've Created</h3>
-        <div class={styles.projects}>
+        <div className={styles.projects}>
           {projects.map(project => (
-            <Link to={"/projects" + project.frontmatter.slug} key={project.id}>
+            <Link to={"/projects/" + project.frontmatter.slug} key={project.id}>
               <div>
                 <GatsbyImage
                   image={project.frontmatter.thumb.childrenImageSharp[0].gatsbyImageData}
-                />
+                alt="image-project"/>
                 <h3>{project.frontmatter.title}</h3>
                 <p>{project.frontmatter.stack}</p>
               </div>
